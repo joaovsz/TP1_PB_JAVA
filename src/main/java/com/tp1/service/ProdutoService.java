@@ -20,13 +20,12 @@ public class ProdutoService {
     private static final int MAX_NOME_LENGTH = 100;
 
     private final ProdutoRepository repository;
-    private long proximoId = 1L; // simula auto-increment
+    private long proximoId = 1L;
 
     public ProdutoService(ProdutoRepository repository) {
         this.repository = Objects.requireNonNull(repository);
     }
 
-    // --- COMMANDS (recebem Commands) ---
     public ProdutoDto criarProduto(CreateProdutoCommand cmd) {
         validar(cmd.nome(), cmd.preco(), cmd.quantidade());
 
@@ -40,7 +39,6 @@ public class ProdutoService {
     }
 
     public ProdutoDto atualizarProduto(UpdateProdutoCommand cmd) {
-        // Verifica existência (lança RecursoNaoEncontradoException se não existir)
         buscarProdutoPorId(cmd.id());
 
         validar(cmd.nome(), cmd.preco(), cmd.quantidade());
@@ -63,7 +61,6 @@ public class ProdutoService {
         repository.deletarPorId(id);
     }
 
-    // --- QUERIES (retornam DTOs e não mudam estado) ---
     public ProdutoDto buscarProdutoPorId(Long id) {
         Produto p = repository.buscarPorId(id)
                 .orElseThrow(() -> new RecursoNaoEncontradoException("Produto com id " + id + " não encontrado."));
@@ -74,7 +71,6 @@ public class ProdutoService {
         return repository.buscarTodos().stream().map(this::mapToDto).collect(Collectors.toList());
     }
 
-    // --- Privados ---
     private void validar(String nome, BigDecimal preco, int quantidade) {
         if (nome == null || nome.trim().length() < MIN_NOME_LENGTH || nome.trim().length() > MAX_NOME_LENGTH) {
             throw new ValidacaoException("Nome deve ter entre " + MIN_NOME_LENGTH + " e " + MAX_NOME_LENGTH + " caracteres.");
