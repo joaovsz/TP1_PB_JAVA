@@ -81,10 +81,15 @@ class ProdutoServiceTest {
     ) {
         BigDecimal preco = BigDecimal.valueOf(precoDouble).setScale(2, RoundingMode.HALF_UP);
 
-        Assume.that(repository.buscarPorNome(nome).isEmpty());
+        // Jqwik properties don't always run JUnit lifecycle hooks in the same way,
+        // so criamos repositório/serviço locais para esta propriedade.
+        ProdutoRepository repoLocal = new InMemoryProdutoRepository();
+        ProdutoService serviceLocal = new ProdutoService(repoLocal);
 
-    ProdutoDto criado = service.criarProduto(new com.tp1.dto.CreateProdutoCommand(nome, preco, quantidade));
-    ProdutoDto buscado = service.buscarProdutoPorId(criado.id());
+        Assume.that(repoLocal.buscarPorNome(nome).isEmpty());
+
+        ProdutoDto criado = serviceLocal.criarProduto(new com.tp1.dto.CreateProdutoCommand(nome, preco, quantidade));
+        ProdutoDto buscado = serviceLocal.buscarProdutoPorId(criado.id());
 
         assertNotNull(buscado);
         assertEquals(criado, buscado);
