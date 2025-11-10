@@ -81,6 +81,11 @@ class ProdutoServiceTest {
     ) {
         BigDecimal preco = BigDecimal.valueOf(precoDouble).setScale(2, RoundingMode.HALF_UP);
 
+<<<<<<< HEAD
+=======
+        // Jqwik properties don't always run JUnit lifecycle hooks in the same way,
+        // so criamos repositório/serviço locais para esta propriedade.
+>>>>>>> bfe308d03637b070dc3b8f77d68e5c5ba6c5c35b
         ProdutoRepository repoLocal = new InMemoryProdutoRepository();
         ProdutoService serviceLocal = new ProdutoService(repoLocal);
 
