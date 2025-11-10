@@ -1,0 +1,11 @@
+/Users/jhonm/Documents/Projetos/Faculdade/TP1_PB_JAVA/src/main/java/com/tp1/Main.java
+/Users/jhonm/Documents/Projetos/Faculdade/TP1_PB_JAVA/src/main/java/com/tp1/dto/CreateProdutoCommand.java
+/Users/jhonm/Documents/Projetos/Faculdade/TP1_PB_JAVA/src/main/java/com/tp1/dto/ProdutoDto.java
+/Users/jhonm/Documents/Projetos/Faculdade/TP1_PB_JAVA/src/main/java/com/tp1/dto/UpdateProdutoCommand.java
+/Users/jhonm/Documents/Projetos/Faculdade/TP1_PB_JAVA/src/main/java/com/tp1/exception/RecursoNaoEncontradoException.java
+/Users/jhonm/Documents/Projetos/Faculdade/TP1_PB_JAVA/src/main/java/com/tp1/exception/ValidacaoException.java
+/Users/jhonm/Documents/Projetos/Faculdade/TP1_PB_JAVA/src/main/java/com/tp1/model/CategoriaProduto.java
+/Users/jhonm/Documents/Projetos/Faculdade/TP1_PB_JAVA/src/main/java/com/tp1/model/Produto.java
+/Users/jhonm/Documents/Projetos/Faculdade/TP1_PB_JAVA/src/main/java/com/tp1/repository/InMemoryProdutoRepository.java
+/Users/jhonm/Documents/Projetos/Faculdade/TP1_PB_JAVA/src/main/java/com/tp1/repository/ProdutoRepository.java
+/Users/jhonm/Documents/Projetos/Faculdade/TP1_PB_JAVA/src/main/java/com/tp1/service/ProdutoService.java
