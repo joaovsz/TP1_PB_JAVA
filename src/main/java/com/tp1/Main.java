@@ -118,10 +118,6 @@ private static void printTable(List<ProdutoDto> produtos) {
     }
 
     String format = "| %-%ds | %-%ds | %-%ds | %-%ds |%n".replace("%-%d", "%-");
-<<<<<<< HEAD
-=======
-    // build format using widths
->>>>>>> bfe308d03637b070dc3b8f77d68e5c5ba6c5c35b
     String fmt = String.format("| %%-%ds | %%-%ds | %%-%ds | %%-%ds |%n", idWidth, nomeWidth, precoWidth, estWidth);
 
 
